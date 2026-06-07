@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Neon Gomoku - 未来棋局</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- 背景特效层 -->
+  <div class="bg-effects">
+    <div class="grid-lines"></div>
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+  </div>
+
+  <!-- 主容器 -->
+  <div class="container">
+    <!-- 标题区 -->
+    <header class="game-header">
+      <h1 class="title">
+        <span class="title-neon">NEON</span>
+        <span class="title-gomoku">GOMOKU</span>
+      </h1>
+      <p class="subtitle">未来棋局 · 智能对决</p>
+    </header>
+
+    <!-- 游戏信息栏 -->
+    <div class="game-info">
+      <div class="player-info player-black active" id="playerBlack">
+        <div class="player-icon">
+          <div class="stone-icon black-stone"></div>
+        </div>
+        <span class="player-name">黑方</span>
+        <div class="ready-indicator"></div>
+      </div>
+      
+      <div class="vs-divider">
+        <span class="vs-text">VS</span>
+        <div class="vs-line"></div>
+      </div>
+      
+      <div class="player-info player-white" id="playerWhite">
+        <div class="player-icon">
+          <div class="stone-icon white-stone"></div>
+        </div>
+        <span class="player-name">白方</span>
+        <div class="ready-indicator"></div>
+      </div>
+    </div>
+
+    <!-- 游戏状态显示 -->
+    <div class="game-status" id="gameStatus">
+      <span class="status-icon">◈</span>
+      <span class="status-text">黑方回合</span>
+    </div>
+
+    <!-- 棋盘区域 -->
+    <div class="board-container">
+      <canvas id="effectsCanvas" class="effects-canvas"></canvas>
+      <canvas id="boardCanvas" class="board-canvas"></canvas>
+    </div>
+
+    <!-- 控制按钮 -->
+    <div class="controls">
+      <button class="btn btn-reset" id="resetBtn">
+        <span class="btn-icon">⟳</span>
+        <span class="btn-text">重新开始</span>
+        <div class="btn-glow"></div>
+      </button>
+      
+      <button class="btn btn-undo" id="undoBtn">
+        <span class="btn-icon">↩</span>
+        <span class="btn-text">悔棋</span>
+        <div class="btn-glow"></div>
+      </button>
+    </div>
+
+    <!-- 胜利公告 -->
+    <div class="winner-overlay" id="winnerOverlay">
+      <div class="winner-content">
+        <div class="winner-glow"></div>
+        <div class="winner-stone" id="winnerStone"></div>
+        <h2 class="winner-title" id="winnerTitle">黑方获胜!</h2>
+        <p class="winner-subtitle">✨ 精彩对决 ✨</p>
+        <button class="btn btn-play-again" id="playAgainBtn">
+          再来一局
+          <div class="btn-glow"></div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 移动端提示 -->
+  <div class="mobile-tip" id="mobileTip">
+    <span>👆 点击棋盘落子</span>
+  </div>
+
+  <script src="js/effects.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
